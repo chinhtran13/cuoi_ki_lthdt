@@ -1,0 +1,10 @@
+E:\c# năm 2 kì 1\cuoi_ki_lthdt\quan_ly_ban_hang\quan_ly_ban_hang\bin\Debug\quan_ly_ban_hang.exe.config
+E:\c# năm 2 kì 1\cuoi_ki_lthdt\quan_ly_ban_hang\quan_ly_ban_hang\bin\Debug\quan_ly_ban_hang.exe
+E:\c# năm 2 kì 1\cuoi_ki_lthdt\quan_ly_ban_hang\quan_ly_ban_hang\bin\Debug\quan_ly_ban_hang.pdb
+E:\c# năm 2 kì 1\cuoi_ki_lthdt\quan_ly_ban_hang\quan_ly_ban_hang\obj\Debug\quan_ly_ban_hang.csproj.AssemblyReference.cache
+E:\c# năm 2 kì 1\cuoi_ki_lthdt\quan_ly_ban_hang\quan_ly_ban_hang\obj\Debug\quan_ly_ban_hang.Form1.resources
+E:\c# năm 2 kì 1\cuoi_ki_lthdt\quan_ly_ban_hang\quan_ly_ban_hang\obj\Debug\quan_ly_ban_hang.Properties.Resources.resources
+E:\c# năm 2 kì 1\cuoi_ki_lthdt\quan_ly_ban_hang\quan_ly_ban_hang\obj\Debug\quan_ly_ban_hang.csproj.GenerateResource.cache
+E:\c# năm 2 kì 1\cuoi_ki_lthdt\quan_ly_ban_hang\quan_ly_ban_hang\obj\Debug\quan_ly_ban_hang.csproj.CoreCompileInputs.cache
+E:\c# năm 2 kì 1\cuoi_ki_lthdt\quan_ly_ban_hang\quan_ly_ban_hang\obj\Debug\quan_ly_ban_hang.exe
+E:\c# năm 2 kì 1\cuoi_ki_lthdt\quan_ly_ban_hang\quan_ly_ban_hang\obj\Debug\quan_ly_ban_hang.pdb
