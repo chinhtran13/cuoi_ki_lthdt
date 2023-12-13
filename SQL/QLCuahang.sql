@@ -1,3 +1,4 @@
+DROP DATABASE QLYcuahang
 CREATE DATABASE QLYcuahang
 ON PRIMARY
     (NAME = QLBanHang_data,
