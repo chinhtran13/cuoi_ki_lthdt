@@ -1,0 +1,577 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="QLYcuahangModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="IDTK" />
+          </Key>
+          <Property Name="IDTK" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DisplayName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="PASSWORD" Type="nvarchar" MaxLength="1000" Nullable="false" />
+          <Property Name="Department" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ChiTietDonHang">
+          <Key>
+            <PropertyRef Name="IDDetail" />
+          </Key>
+          <Property Name="IDDetail" Type="int" Nullable="false" />
+          <Property Name="TotalPrice" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="IDSale" Type="int" />
+          <Property Name="IDFood" Type="int" />
+        </EntityType>
+        <EntityType Name="DonDatHang">
+          <Key>
+            <PropertyRef Name="IDOrder" />
+          </Key>
+          <Property Name="IDOrder" Type="int" Nullable="false" />
+          <Property Name="Time" Type="time" Precision="7" Nullable="false" />
+          <Property Name="StatusOrder" Type="nvarchar" MaxLength="50" />
+          <Property Name="IDNV" Type="int" />
+          <Property Name="IDKH" Type="int" />
+          <Property Name="IDDetail" Type="int" />
+        </EntityType>
+        <EntityType Name="DonHang_Muc">
+          <Key>
+            <PropertyRef Name="IDoi" />
+          </Key>
+          <Property Name="IDoi" Type="int" Nullable="false" />
+          <Property Name="IDOrderDetail" Type="int" />
+          <Property Name="IDFood" Type="int" />
+          <Property Name="Quantity" Type="int" />
+        </EntityType>
+        <EntityType Name="FOOD">
+          <Key>
+            <PropertyRef Name="IDFood" />
+          </Key>
+          <Property Name="IDFood" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Type" Type="nvarchar" MaxLength="50" />
+          <Property Name="Quantity" Type="int" />
+          <Property Name="Price" Type="float" />
+          <Property Name="name" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="FOODcategory">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="KhachHang">
+          <Key>
+            <PropertyRef Name="IDKH" />
+          </Key>
+          <Property Name="IDKH" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="255" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="15" />
+          <Property Name="Gender" Type="nvarchar" MaxLength="10" />
+          <Property Name="BirthDay" Type="date" />
+        </EntityType>
+        <EntityType Name="KhuyenMai">
+          <Key>
+            <PropertyRef Name="IDSale" />
+          </Key>
+          <Property Name="IDSale" Type="int" Nullable="false" />
+          <Property Name="Type" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name" Type="nvarchar" MaxLength="255" />
+          <Property Name="Rate" Type="decimal" Precision="5" Scale="2" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'QLYcuahang.dbo.NgayLamViec' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="NgayLamViec">
+          <Property Name="Ngay" Type="date" />
+          <Property Name="StartTime" Type="time" Precision="7" />
+          <Property Name="EndTime" Type="time" Precision="7" />
+          <Property Name="IDNV" Type="int" />
+        </EntityType>-->
+        <EntityType Name="ThongTinNV">
+          <Key>
+            <PropertyRef Name="IDNV" />
+          </Key>
+          <Property Name="IDNV" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="Gender" Type="nvarchar" MaxLength="10" />
+          <Property Name="Department" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__ChiTietDo__IDFoo__440B1D61">
+          <End Role="FOOD" Type="Self.FOOD" Multiplicity="0..1" />
+          <End Role="ChiTietDonHang" Type="Self.ChiTietDonHang" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FOOD">
+              <PropertyRef Name="IDFood" />
+            </Principal>
+            <Dependent Role="ChiTietDonHang">
+              <PropertyRef Name="IDFood" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ChiTietDo__IDSal__4316F928">
+          <End Role="KhuyenMai" Type="Self.KhuyenMai" Multiplicity="0..1" />
+          <End Role="ChiTietDonHang" Type="Self.ChiTietDonHang" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KhuyenMai">
+              <PropertyRef Name="IDSale" />
+            </Principal>
+            <Dependent Role="ChiTietDonHang">
+              <PropertyRef Name="IDSale" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DonDatHan__IDDet__49C3F6B7">
+          <End Role="ChiTietDonHang" Type="Self.ChiTietDonHang" Multiplicity="0..1" />
+          <End Role="DonDatHang" Type="Self.DonDatHang" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ChiTietDonHang">
+              <PropertyRef Name="IDDetail" />
+            </Principal>
+            <Dependent Role="DonDatHang">
+              <PropertyRef Name="IDDetail" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DonDatHang__IDKH__48CFD27E">
+          <End Role="KhachHang" Type="Self.KhachHang" Multiplicity="0..1" />
+          <End Role="DonDatHang" Type="Self.DonDatHang" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KhachHang">
+              <PropertyRef Name="IDKH" />
+            </Principal>
+            <Dependent Role="DonDatHang">
+              <PropertyRef Name="IDKH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DonDatHang__IDNV__47DBAE45">
+          <End Role="ThongTinNV" Type="Self.ThongTinNV" Multiplicity="0..1" />
+          <End Role="DonDatHang" Type="Self.DonDatHang" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ThongTinNV">
+              <PropertyRef Name="IDNV" />
+            </Principal>
+            <Dependent Role="DonDatHang">
+              <PropertyRef Name="IDNV" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DonHang_M__IDFoo__4D94879B">
+          <End Role="FOOD" Type="Self.FOOD" Multiplicity="0..1" />
+          <End Role="DonHang_Muc" Type="Self.DonHang_Muc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FOOD">
+              <PropertyRef Name="IDFood" />
+            </Principal>
+            <Dependent Role="DonHang_Muc">
+              <PropertyRef Name="IDFood" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DonHang_M__IDOrd__4CA06362">
+          <End Role="ChiTietDonHang" Type="Self.ChiTietDonHang" Multiplicity="0..1" />
+          <End Role="DonHang_Muc" Type="Self.DonHang_Muc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ChiTietDonHang">
+              <PropertyRef Name="IDDetail" />
+            </Principal>
+            <Dependent Role="DonHang_Muc">
+              <PropertyRef Name="IDOrderDetail" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <!--Errors Found During Generation:
+error 6004: The table 'QLYcuahang.dbo.NgayLamViec' is referenced by a relationship, but cannot be found.
+        <Association Name="FK__NgayLamVie__IDNV__38996AB5" />-->
+        <EntityContainer Name="QLYcuahangModelStoreContainer">
+          <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ChiTietDonHang" EntityType="Self.ChiTietDonHang" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DonDatHang" EntityType="Self.DonDatHang" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DonHang_Muc" EntityType="Self.DonHang_Muc" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FOOD" EntityType="Self.FOOD" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FOODcategory" EntityType="Self.FOODcategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KhachHang" EntityType="Self.KhachHang" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KhuyenMai" EntityType="Self.KhuyenMai" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ThongTinNV" EntityType="Self.ThongTinNV" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__ChiTietDo__IDFoo__440B1D61" Association="Self.FK__ChiTietDo__IDFoo__440B1D61">
+            <End Role="FOOD" EntitySet="FOOD" />
+            <End Role="ChiTietDonHang" EntitySet="ChiTietDonHang" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ChiTietDo__IDSal__4316F928" Association="Self.FK__ChiTietDo__IDSal__4316F928">
+            <End Role="KhuyenMai" EntitySet="KhuyenMai" />
+            <End Role="ChiTietDonHang" EntitySet="ChiTietDonHang" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DonDatHan__IDDet__49C3F6B7" Association="Self.FK__DonDatHan__IDDet__49C3F6B7">
+            <End Role="ChiTietDonHang" EntitySet="ChiTietDonHang" />
+            <End Role="DonDatHang" EntitySet="DonDatHang" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DonDatHang__IDKH__48CFD27E" Association="Self.FK__DonDatHang__IDKH__48CFD27E">
+            <End Role="KhachHang" EntitySet="KhachHang" />
+            <End Role="DonDatHang" EntitySet="DonDatHang" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DonDatHang__IDNV__47DBAE45" Association="Self.FK__DonDatHang__IDNV__47DBAE45">
+            <End Role="ThongTinNV" EntitySet="ThongTinNV" />
+            <End Role="DonDatHang" EntitySet="DonDatHang" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DonHang_M__IDFoo__4D94879B" Association="Self.FK__DonHang_M__IDFoo__4D94879B">
+            <End Role="FOOD" EntitySet="FOOD" />
+            <End Role="DonHang_Muc" EntitySet="DonHang_Muc" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DonHang_M__IDOrd__4CA06362" Association="Self.FK__DonHang_M__IDOrd__4CA06362">
+            <End Role="ChiTietDonHang" EntitySet="ChiTietDonHang" />
+            <End Role="DonHang_Muc" EntitySet="DonHang_Muc" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="QLYcuahangModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="IDTK" />
+          </Key>
+          <Property Name="IDTK" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DisplayName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PASSWORD" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Department" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ChiTietDonHang">
+          <Key>
+            <PropertyRef Name="IDDetail" />
+          </Key>
+          <Property Name="IDDetail" Type="Int32" Nullable="false" />
+          <Property Name="TotalPrice" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="IDSale" Type="Int32" />
+          <Property Name="IDFood" Type="Int32" />
+          <NavigationProperty Name="FOOD" Relationship="Self.FK__ChiTietDo__IDFoo__440B1D61" FromRole="ChiTietDonHang" ToRole="FOOD" />
+          <NavigationProperty Name="KhuyenMai" Relationship="Self.FK__ChiTietDo__IDSal__4316F928" FromRole="ChiTietDonHang" ToRole="KhuyenMai" />
+          <NavigationProperty Name="DonDatHangs" Relationship="Self.FK__DonDatHan__IDDet__49C3F6B7" FromRole="ChiTietDonHang" ToRole="DonDatHang" />
+          <NavigationProperty Name="DonHang_Muc" Relationship="Self.FK__DonHang_M__IDOrd__4CA06362" FromRole="ChiTietDonHang" ToRole="DonHang_Muc" />
+        </EntityType>
+        <EntityType Name="DonDatHang">
+          <Key>
+            <PropertyRef Name="IDOrder" />
+          </Key>
+          <Property Name="IDOrder" Type="Int32" Nullable="false" />
+          <Property Name="Time" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="StatusOrder" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IDNV" Type="Int32" />
+          <Property Name="IDKH" Type="Int32" />
+          <Property Name="IDDetail" Type="Int32" />
+          <NavigationProperty Name="ChiTietDonHang" Relationship="Self.FK__DonDatHan__IDDet__49C3F6B7" FromRole="DonDatHang" ToRole="ChiTietDonHang" />
+          <NavigationProperty Name="KhachHang" Relationship="Self.FK__DonDatHang__IDKH__48CFD27E" FromRole="DonDatHang" ToRole="KhachHang" />
+          <NavigationProperty Name="ThongTinNV" Relationship="Self.FK__DonDatHang__IDNV__47DBAE45" FromRole="DonDatHang" ToRole="ThongTinNV" />
+        </EntityType>
+        <EntityType Name="DonHang_Muc">
+          <Key>
+            <PropertyRef Name="IDoi" />
+          </Key>
+          <Property Name="IDoi" Type="Int32" Nullable="false" />
+          <Property Name="IDOrderDetail" Type="Int32" />
+          <Property Name="IDFood" Type="Int32" />
+          <Property Name="Quantity" Type="Int32" />
+          <NavigationProperty Name="ChiTietDonHang" Relationship="Self.FK__DonHang_M__IDOrd__4CA06362" FromRole="DonHang_Muc" ToRole="ChiTietDonHang" />
+          <NavigationProperty Name="FOOD" Relationship="Self.FK__DonHang_M__IDFoo__4D94879B" FromRole="DonHang_Muc" ToRole="FOOD" />
+        </EntityType>
+        <EntityType Name="FOOD">
+          <Key>
+            <PropertyRef Name="IDFood" />
+          </Key>
+          <Property Name="IDFood" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Quantity" Type="Int32" />
+          <Property Name="Price" Type="Double" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ChiTietDonHangs" Relationship="Self.FK__ChiTietDo__IDFoo__440B1D61" FromRole="FOOD" ToRole="ChiTietDonHang" />
+          <NavigationProperty Name="DonHang_Muc" Relationship="Self.FK__DonHang_M__IDFoo__4D94879B" FromRole="FOOD" ToRole="DonHang_Muc" />
+        </EntityType>
+        <EntityType Name="FOODcategory">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="KhachHang">
+          <Key>
+            <PropertyRef Name="IDKH" />
+          </Key>
+          <Property Name="IDKH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Gender" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="BirthDay" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="DonDatHangs" Relationship="Self.FK__DonDatHang__IDKH__48CFD27E" FromRole="KhachHang" ToRole="DonDatHang" />
+        </EntityType>
+        <EntityType Name="KhuyenMai">
+          <Key>
+            <PropertyRef Name="IDSale" />
+          </Key>
+          <Property Name="IDSale" Type="Int32" Nullable="false" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Rate" Type="Decimal" Precision="5" Scale="2" />
+          <NavigationProperty Name="ChiTietDonHangs" Relationship="Self.FK__ChiTietDo__IDSal__4316F928" FromRole="KhuyenMai" ToRole="ChiTietDonHang" />
+        </EntityType>
+        <EntityType Name="ThongTinNV">
+          <Key>
+            <PropertyRef Name="IDNV" />
+          </Key>
+          <Property Name="IDNV" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Gender" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Department" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="DonDatHangs" Relationship="Self.FK__DonDatHang__IDNV__47DBAE45" FromRole="ThongTinNV" ToRole="DonDatHang" />
+        </EntityType>
+        <Association Name="FK__ChiTietDo__IDFoo__440B1D61">
+          <End Role="FOOD" Type="Self.FOOD" Multiplicity="0..1" />
+          <End Role="ChiTietDonHang" Type="Self.ChiTietDonHang" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FOOD">
+              <PropertyRef Name="IDFood" />
+            </Principal>
+            <Dependent Role="ChiTietDonHang">
+              <PropertyRef Name="IDFood" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ChiTietDo__IDSal__4316F928">
+          <End Role="KhuyenMai" Type="Self.KhuyenMai" Multiplicity="0..1" />
+          <End Role="ChiTietDonHang" Type="Self.ChiTietDonHang" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KhuyenMai">
+              <PropertyRef Name="IDSale" />
+            </Principal>
+            <Dependent Role="ChiTietDonHang">
+              <PropertyRef Name="IDSale" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DonDatHan__IDDet__49C3F6B7">
+          <End Role="ChiTietDonHang" Type="Self.ChiTietDonHang" Multiplicity="0..1" />
+          <End Role="DonDatHang" Type="Self.DonDatHang" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ChiTietDonHang">
+              <PropertyRef Name="IDDetail" />
+            </Principal>
+            <Dependent Role="DonDatHang">
+              <PropertyRef Name="IDDetail" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DonHang_M__IDOrd__4CA06362">
+          <End Role="ChiTietDonHang" Type="Self.ChiTietDonHang" Multiplicity="0..1" />
+          <End Role="DonHang_Muc" Type="Self.DonHang_Muc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ChiTietDonHang">
+              <PropertyRef Name="IDDetail" />
+            </Principal>
+            <Dependent Role="DonHang_Muc">
+              <PropertyRef Name="IDOrderDetail" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DonDatHang__IDKH__48CFD27E">
+          <End Role="KhachHang" Type="Self.KhachHang" Multiplicity="0..1" />
+          <End Role="DonDatHang" Type="Self.DonDatHang" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KhachHang">
+              <PropertyRef Name="IDKH" />
+            </Principal>
+            <Dependent Role="DonDatHang">
+              <PropertyRef Name="IDKH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DonDatHang__IDNV__47DBAE45">
+          <End Role="ThongTinNV" Type="Self.ThongTinNV" Multiplicity="0..1" />
+          <End Role="DonDatHang" Type="Self.DonDatHang" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ThongTinNV">
+              <PropertyRef Name="IDNV" />
+            </Principal>
+            <Dependent Role="DonDatHang">
+              <PropertyRef Name="IDNV" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DonHang_M__IDFoo__4D94879B">
+          <End Role="FOOD" Type="Self.FOOD" Multiplicity="0..1" />
+          <End Role="DonHang_Muc" Type="Self.DonHang_Muc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FOOD">
+              <PropertyRef Name="IDFood" />
+            </Principal>
+            <Dependent Role="DonHang_Muc">
+              <PropertyRef Name="IDFood" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="QLYcuahangEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Accounts" EntityType="Self.Account" />
+          <EntitySet Name="ChiTietDonHangs" EntityType="Self.ChiTietDonHang" />
+          <EntitySet Name="DonDatHangs" EntityType="Self.DonDatHang" />
+          <EntitySet Name="DonHang_Muc" EntityType="Self.DonHang_Muc" />
+          <EntitySet Name="FOODs" EntityType="Self.FOOD" />
+          <EntitySet Name="FOODcategories" EntityType="Self.FOODcategory" />
+          <EntitySet Name="KhachHangs" EntityType="Self.KhachHang" />
+          <EntitySet Name="KhuyenMais" EntityType="Self.KhuyenMai" />
+          <EntitySet Name="ThongTinNVs" EntityType="Self.ThongTinNV" />
+          <AssociationSet Name="FK__ChiTietDo__IDFoo__440B1D61" Association="Self.FK__ChiTietDo__IDFoo__440B1D61">
+            <End Role="FOOD" EntitySet="FOODs" />
+            <End Role="ChiTietDonHang" EntitySet="ChiTietDonHangs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ChiTietDo__IDSal__4316F928" Association="Self.FK__ChiTietDo__IDSal__4316F928">
+            <End Role="KhuyenMai" EntitySet="KhuyenMais" />
+            <End Role="ChiTietDonHang" EntitySet="ChiTietDonHangs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DonDatHan__IDDet__49C3F6B7" Association="Self.FK__DonDatHan__IDDet__49C3F6B7">
+            <End Role="ChiTietDonHang" EntitySet="ChiTietDonHangs" />
+            <End Role="DonDatHang" EntitySet="DonDatHangs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DonHang_M__IDOrd__4CA06362" Association="Self.FK__DonHang_M__IDOrd__4CA06362">
+            <End Role="ChiTietDonHang" EntitySet="ChiTietDonHangs" />
+            <End Role="DonHang_Muc" EntitySet="DonHang_Muc" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DonDatHang__IDKH__48CFD27E" Association="Self.FK__DonDatHang__IDKH__48CFD27E">
+            <End Role="KhachHang" EntitySet="KhachHangs" />
+            <End Role="DonDatHang" EntitySet="DonDatHangs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DonDatHang__IDNV__47DBAE45" Association="Self.FK__DonDatHang__IDNV__47DBAE45">
+            <End Role="ThongTinNV" EntitySet="ThongTinNVs" />
+            <End Role="DonDatHang" EntitySet="DonDatHangs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DonHang_M__IDFoo__4D94879B" Association="Self.FK__DonHang_M__IDFoo__4D94879B">
+            <End Role="FOOD" EntitySet="FOODs" />
+            <End Role="DonHang_Muc" EntitySet="DonHang_Muc" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="QLYcuahangModelStoreContainer" CdmEntityContainer="QLYcuahangEntities">
+          <EntitySetMapping Name="Accounts">
+            <EntityTypeMapping TypeName="QLYcuahangModel.Account">
+              <MappingFragment StoreEntitySet="Account">
+                <ScalarProperty Name="IDTK" ColumnName="IDTK" />
+                <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ChiTietDonHangs">
+            <EntityTypeMapping TypeName="QLYcuahangModel.ChiTietDonHang">
+              <MappingFragment StoreEntitySet="ChiTietDonHang">
+                <ScalarProperty Name="IDDetail" ColumnName="IDDetail" />
+                <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+                <ScalarProperty Name="IDSale" ColumnName="IDSale" />
+                <ScalarProperty Name="IDFood" ColumnName="IDFood" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DonDatHangs">
+            <EntityTypeMapping TypeName="QLYcuahangModel.DonDatHang">
+              <MappingFragment StoreEntitySet="DonDatHang">
+                <ScalarProperty Name="IDOrder" ColumnName="IDOrder" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="StatusOrder" ColumnName="StatusOrder" />
+                <ScalarProperty Name="IDNV" ColumnName="IDNV" />
+                <ScalarProperty Name="IDKH" ColumnName="IDKH" />
+                <ScalarProperty Name="IDDetail" ColumnName="IDDetail" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DonHang_Muc">
+            <EntityTypeMapping TypeName="QLYcuahangModel.DonHang_Muc">
+              <MappingFragment StoreEntitySet="DonHang_Muc">
+                <ScalarProperty Name="IDoi" ColumnName="IDoi" />
+                <ScalarProperty Name="IDOrderDetail" ColumnName="IDOrderDetail" />
+                <ScalarProperty Name="IDFood" ColumnName="IDFood" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FOODs">
+            <EntityTypeMapping TypeName="QLYcuahangModel.FOOD">
+              <MappingFragment StoreEntitySet="FOOD">
+                <ScalarProperty Name="IDFood" ColumnName="IDFood" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FOODcategories">
+            <EntityTypeMapping TypeName="QLYcuahangModel.FOODcategory">
+              <MappingFragment StoreEntitySet="FOODcategory">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KhachHangs">
+            <EntityTypeMapping TypeName="QLYcuahangModel.KhachHang">
+              <MappingFragment StoreEntitySet="KhachHang">
+                <ScalarProperty Name="IDKH" ColumnName="IDKH" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="BirthDay" ColumnName="BirthDay" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KhuyenMais">
+            <EntityTypeMapping TypeName="QLYcuahangModel.KhuyenMai">
+              <MappingFragment StoreEntitySet="KhuyenMai">
+                <ScalarProperty Name="IDSale" ColumnName="IDSale" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Rate" ColumnName="Rate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ThongTinNVs">
+            <EntityTypeMapping TypeName="QLYcuahangModel.ThongTinNV">
+              <MappingFragment StoreEntitySet="ThongTinNV">
+                <ScalarProperty Name="IDNV" ColumnName="IDNV" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

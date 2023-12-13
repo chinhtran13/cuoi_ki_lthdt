@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f15dd5db2c3444028580a68b98401fab" Name="Diagram1">
+        <EntityTypeShape EntityType="QLYcuahangModel.Account" Width="1.5" PointX="5.75" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLYcuahangModel.ChiTietDonHang" Width="1.5" PointX="3" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLYcuahangModel.DonDatHang" Width="1.5" PointX="5.25" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLYcuahangModel.DonHang_Muc" Width="1.5" PointX="8.25" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLYcuahangModel.FOOD" Width="1.5" PointX="0.75" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLYcuahangModel.FOODcategory" Width="1.5" PointX="7.75" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLYcuahangModel.KhachHang" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLYcuahangModel.KhuyenMai" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLYcuahangModel.ThongTinNV" Width="1.5" PointX="3" PointY="7.625" IsExpanded="true" />
+        <AssociationConnector Association="QLYcuahangModel.FK__ChiTietDo__IDFoo__440B1D61" ManuallyRouted="false" />
+        <AssociationConnector Association="QLYcuahangModel.FK__ChiTietDo__IDSal__4316F928" ManuallyRouted="false" />
+        <AssociationConnector Association="QLYcuahangModel.FK__DonDatHan__IDDet__49C3F6B7" ManuallyRouted="false" />
+        <AssociationConnector Association="QLYcuahangModel.FK__DonHang_M__IDOrd__4CA06362" ManuallyRouted="false" />
+        <AssociationConnector Association="QLYcuahangModel.FK__DonDatHang__IDKH__48CFD27E" ManuallyRouted="false" />
+        <AssociationConnector Association="QLYcuahangModel.FK__DonDatHang__IDNV__47DBAE45" ManuallyRouted="false" />
+        <AssociationConnector Association="QLYcuahangModel.FK__DonHang_M__IDFoo__4D94879B" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
