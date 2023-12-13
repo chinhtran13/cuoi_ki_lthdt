@@ -12,21 +12,24 @@ namespace quan_ly_ban_hang
     using System;
     using System.Collections.Generic;
     
-    public partial class ThongTinNV
+    public partial class HoaDon
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public ThongTinNV()
+        public HoaDon()
         {
-            this.DonDatHangs = new HashSet<DonDatHang>();
+            this.CTHDs = new HashSet<CTHD>();
         }
     
-        public int IDNV { get; set; }
-        public string Name { get; set; }
-        public string Phone { get; set; }
-        public string Gender { get; set; }
-        public int Department { get; set; }
+        public int MaHD { get; set; }
+        public System.DateTime NgayTao { get; set; }
+        public string SDT { get; set; }
+        public int MaNV { get; set; }
+        public Nullable<int> MaKM { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DonDatHang> DonDatHangs { get; set; }
+        public virtual ICollection<CTHD> CTHDs { get; set; }
+        public virtual KhuyenMai KhuyenMai { get; set; }
+        public virtual NhanVien NhanVien { get; set; }
+        public virtual ThanhVien ThanhVien { get; set; }
     }
 }

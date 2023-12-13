@@ -13,10 +13,10 @@ namespace quan_ly_ban_hang
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class QLYcuahangEntities : DbContext
+    public partial class QLYcuahangEntities1 : DbContext
     {
-        public QLYcuahangEntities()
-            : base("name=QLYcuahangEntities")
+        public QLYcuahangEntities1()
+            : base("name=QLYcuahangEntities1")
         {
         }
     
@@ -25,14 +25,11 @@ namespace quan_ly_ban_hang
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Account> Accounts { get; set; }
-        public virtual DbSet<ChiTietDonHang> ChiTietDonHangs { get; set; }
-        public virtual DbSet<DonDatHang> DonDatHangs { get; set; }
-        public virtual DbSet<DonHang_Muc> DonHang_Muc { get; set; }
-        public virtual DbSet<FOOD> FOODs { get; set; }
-        public virtual DbSet<FOODcategory> FOODcategories { get; set; }
-        public virtual DbSet<KhachHang> KhachHangs { get; set; }
+        public virtual DbSet<CTHD> CTHDs { get; set; }
+        public virtual DbSet<HoaDon> HoaDons { get; set; }
         public virtual DbSet<KhuyenMai> KhuyenMais { get; set; }
-        public virtual DbSet<ThongTinNV> ThongTinNVs { get; set; }
+        public virtual DbSet<NhanVien> NhanViens { get; set; }
+        public virtual DbSet<SanPham> SanPhams { get; set; }
+        public virtual DbSet<ThanhVien> ThanhViens { get; set; }
     }
 }

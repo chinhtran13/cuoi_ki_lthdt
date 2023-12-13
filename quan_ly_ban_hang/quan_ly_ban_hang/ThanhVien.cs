@@ -12,24 +12,19 @@ namespace quan_ly_ban_hang
     using System;
     using System.Collections.Generic;
     
-    public partial class FOOD
+    public partial class ThanhVien
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public FOOD()
+        public ThanhVien()
         {
-            this.ChiTietDonHangs = new HashSet<ChiTietDonHang>();
-            this.DonHang_Muc = new HashSet<DonHang_Muc>();
+            this.HoaDons = new HashSet<HoaDon>();
         }
     
-        public int IDFood { get; set; }
-        public string Type { get; set; }
-        public Nullable<int> Quantity { get; set; }
-        public Nullable<double> Price { get; set; }
-        public string name { get; set; }
+        public string SDTTV { get; set; }
+        public string TenTV { get; set; }
+        public string Email { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ChiTietDonHang> ChiTietDonHangs { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DonHang_Muc> DonHang_Muc { get; set; }
+        public virtual ICollection<HoaDon> HoaDons { get; set; }
     }
 }

@@ -17,15 +17,17 @@ namespace quan_ly_ban_hang
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public KhuyenMai()
         {
-            this.ChiTietDonHangs = new HashSet<ChiTietDonHang>();
+            this.HoaDons = new HashSet<HoaDon>();
         }
     
-        public int IDSale { get; set; }
-        public string Type { get; set; }
-        public string Name { get; set; }
-        public Nullable<decimal> Rate { get; set; }
+        public int MaKM { get; set; }
+        public string LoaiKM { get; set; }
+        public System.DateTime NgayBatDau { get; set; }
+        public System.DateTime NgayKetThuc { get; set; }
+        public string ComboKM { get; set; }
+        public double PhanTramGiam { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ChiTietDonHang> ChiTietDonHangs { get; set; }
+        public virtual ICollection<HoaDon> HoaDons { get; set; }
     }
 }

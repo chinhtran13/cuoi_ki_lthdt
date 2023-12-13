@@ -12,9 +12,15 @@ namespace quan_ly_ban_hang
     using System;
     using System.Collections.Generic;
     
-    public partial class FOODcategory
+    public partial class CTHD
     {
-        public int ID { get; set; }
-        public string name { get; set; }
+        public int MaHD { get; set; }
+        public int MaSP { get; set; }
+        public int SL { get; set; }
+        public double DonGia { get; set; }
+        public double TongTien { get; set; }
+    
+        public virtual HoaDon HoaDon { get; set; }
+        public virtual SanPham SanPham { get; set; }
     }
 }
