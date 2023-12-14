@@ -24,6 +24,7 @@ namespace quan_ly_ban_hang
         public string TenSP { get; set; }
         public double Gia { get; set; }
         public int SoLuong { get; set; }
+        public string LoaiSP { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CTHD> CTHDs { get; set; }

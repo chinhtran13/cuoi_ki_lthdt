@@ -54,6 +54,7 @@
           <Property Name="TenSP" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="Gia" Type="float" Nullable="false" />
           <Property Name="SoLuong" Type="int" Nullable="false" />
+          <Property Name="LoaiSP" Type="varchar" MaxLength="255" Nullable="false" />
         </EntityType>
         <EntityType Name="ThanhVien">
           <Key>
@@ -213,6 +214,7 @@
           <Property Name="TenSP" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Gia" Type="Double" Nullable="false" />
           <Property Name="SoLuong" Type="Int32" Nullable="false" />
+          <Property Name="LoaiSP" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="CTHDs" Relationship="Self.FK__CTHD__MaSP__44FF419A" FromRole="SanPham" ToRole="CTHD" />
         </EntityType>
         <EntityType Name="ThanhVien">
@@ -284,7 +286,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="QLYcuahangEntities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="QLYcuahangEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="CTHDs" EntityType="Self.CTHD" />
           <EntitySet Name="HoaDons" EntityType="Self.HoaDon" />
           <EntitySet Name="KhuyenMais" EntityType="Self.KhuyenMai" />
@@ -317,7 +319,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="QLYcuahangModelStoreContainer" CdmEntityContainer="QLYcuahangEntities1">
+        <EntityContainerMapping StorageEntityContainer="QLYcuahangModelStoreContainer" CdmEntityContainer="QLYcuahangEntities">
           <EntitySetMapping Name="CTHDs">
             <EntityTypeMapping TypeName="QLYcuahangModel.CTHD">
               <MappingFragment StoreEntitySet="CTHD">
@@ -369,6 +371,7 @@
                 <ScalarProperty Name="TenSP" ColumnName="TenSP" />
                 <ScalarProperty Name="Gia" ColumnName="Gia" />
                 <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+                <ScalarProperty Name="LoaiSP" ColumnName="LoaiSP" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
