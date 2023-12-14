@@ -2,13 +2,13 @@ DROP DATABASE QLYcuahang
 CREATE DATABASE QLYcuahang
 ON PRIMARY
     (NAME = QLBanHang_data,
-    FILENAME = 'C:\Users\vienc\Desktop\SQL\QLBanHang.mdf',
+    FILENAME = 'D:\QLBanHang.mdf',
     SIZE = 10MB,
     MAXSIZE = UNLIMITED,
     FILEGROWTH = 5MB )
 LOG ON
     (NAME = QLBanHang_log,
-    FILENAME = 'C:\Users\vienc\Desktop\SQL\QLBanHang.ldf',
+    FILENAME = 'D:\QLBanHang.ldf',
     SIZE = 5MB,
     MAXSIZE = 100MB,
     FILEGROWTH = 5MB);
