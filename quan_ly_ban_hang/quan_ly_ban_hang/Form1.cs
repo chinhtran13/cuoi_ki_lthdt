@@ -12,6 +12,9 @@ namespace quan_ly_ban_hang
 {
     public partial class Form1 : Form
     {
+        Form2 form2 = new Form2();
+        Form3 form3 = new Form3();
+        Form4 form4 = new Form4();
         public Form1()
         {
             InitializeComponent();
@@ -25,6 +28,9 @@ namespace quan_ly_ban_hang
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.button8 = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -41,9 +47,6 @@ namespace quan_ly_ban_hang
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.button7 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.button8 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -94,6 +97,33 @@ namespace quan_ly_ban_hang
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(185, 604);
             this.panel2.TabIndex = 1;
+            // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(57, 566);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(75, 23);
+            this.button8.TabIndex = 5;
+            this.button8.Text = "Lưu";
+            this.button8.UseVisualStyleBackColor = true;
+            // 
+            // label7
+            // 
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(11, 503);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(163, 23);
+            this.label7.TabIndex = 4;
+            this.label7.Text = "Nhập Số ĐT Khách Hàng";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(11, 534);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(163, 26);
+            this.textBox1.TabIndex = 3;
             // 
             // label2
             // 
@@ -157,6 +187,7 @@ namespace quan_ly_ban_hang
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(465, 484);
             this.dataGridView1.TabIndex = 2;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // Column1
             // 
@@ -258,36 +289,9 @@ namespace quan_ly_ban_hang
             this.button7.UseVisualStyleBackColor = true;
             this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(11, 534);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(163, 26);
-            this.textBox1.TabIndex = 3;
-            // 
-            // label7
-            // 
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(11, 503);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(163, 23);
-            this.label7.TabIndex = 4;
-            this.label7.Text = "Nhập Số ĐT Khách Hàng";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // button8
-            // 
-            this.button8.Location = new System.Drawing.Point(57, 566);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(75, 23);
-            this.button8.TabIndex = 5;
-            this.button8.Text = "Lưu";
-            this.button8.UseVisualStyleBackColor = true;
-            // 
             // Form1
             // 
-            this.ClientSize = new System.Drawing.Size(921, 714);
+            this.ClientSize = new System.Drawing.Size(959, 723);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -318,20 +322,25 @@ namespace quan_ly_ban_hang
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form2 form2 = new Form2();
+            
             form2.ShowDialog();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Form3 form3 = new Form3();
+            
             form3.ShowDialog();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Form4 form4 = new Form4();
+            
             form4.ShowDialog();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
