@@ -12,6 +12,11 @@ namespace quan_ly_ban_hang
 {
     public partial class Form1 : Form
     {
+        QLYcuahangEntities db = new QLYcuahangEntities();
+        HoaDon activeHD;
+        List<HoaDon> dsHoaDon;
+        CTHD ActiveHD_CT;
+        List<CTHD> ActiveHD_CT_DS;
         Form2 form2 = new Form2();
         Form3 form3 = new Form3();
         Form4 form4 = new Form4();
@@ -344,13 +349,20 @@ namespace quan_ly_ban_hang
 
         }
 
-        public static void Form_Update(object sender, EventArgs e)
+        public void Form_Update(object sender, EventArgs e)
         {
+          
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            dsHoaDon = db.HoaDons.ToList();
+            if(dsHoaDon.Count <= 0)
+            {
+                activeHD = new HoaDon();
+                activeHD.MaHD = 1;
+                activeHD.NgayTao = DateTime.UtcNow;
+            }
         }
     }
 }

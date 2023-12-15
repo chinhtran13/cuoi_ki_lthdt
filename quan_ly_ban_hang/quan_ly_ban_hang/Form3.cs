@@ -23,7 +23,7 @@ namespace quan_ly_ban_hang
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            Form_Update_Search();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -63,6 +63,7 @@ namespace quan_ly_ban_hang
         }
         private void Form_Update_Search()
         {
+            gridViewDoAn = new DataGridView();
             foreach (SanPham sanPham in db.SanPhams)
             {
                 if(sanPham.LoaiSP == "Do An" & sanPham.TenSP.StartsWith(textBox1.ToString()))
