@@ -13,7 +13,8 @@ namespace quan_ly_ban_hang
     public partial class Form4 : Form
     {
         List<SanPham> dsDoUong = new List<SanPham>();
-
+        CTHD chitietHD = new CTHD();
+        HoaDon hoaDon;
         QLYcuahangEntities db = new QLYcuahangEntities();
         SanPham doUong = null;
         public Form4()
@@ -27,18 +28,22 @@ namespace quan_ly_ban_hang
         }
         private void Form_Update_Search()
         {
-            gridDoUong = new DataGridView();
+            dsDoUong = new List<SanPham>();
+            if (gridDoUong.Rows.Count > 0)
+            {
+                gridDoUong.Rows.Clear();
+            }
             foreach (SanPham sanPham in db.SanPhams)
             {
-                if (sanPham.LoaiSP == "Do An" & sanPham.TenSP.StartsWith(textBox1.ToString()))
+                if (sanPham.LoaiSP == "Do Uong" & sanPham.TenSP.ToLower().StartsWith(textBox1.Text.ToLower()))
                 {
                     dsDoUong.Add(sanPham);
                 }
             }
-            gridDoUong.Columns.Add("IdDoAn", "Mã Đồ Ăn");
-            gridDoUong.Columns.Add("TenDoAn", "Tên Đồ Ăn");
-            gridDoUong.Columns.Add("SoLuongDoAn", "Số Lượng");
-            gridDoUong.Columns.Add("GiaDoAn", " Giá Tiền");
+            gridDoUong.Columns.Add("IdDoUong", "Mã Đồ Uống");
+            gridDoUong.Columns.Add("TenDoUong", "Tên Đồ Uống");
+            gridDoUong.Columns.Add("SoLuongDoUong", "Số Lượng");
+            gridDoUong.Columns.Add("GiaDoUong", " Giá Tiền");
             foreach (SanPham sanPham in dsDoUong)
             {
                 DataGridViewRow row = new DataGridViewRow();
@@ -52,7 +57,7 @@ namespace quan_ly_ban_hang
         }
         private void Form4_Load(object sender, EventArgs e)
         {
-
+            hoaDon = db.HoaDons.Last();
             foreach (SanPham sanPham in db.SanPhams)
             {
                 if (sanPham.LoaiSP == "Do Uong")
@@ -60,10 +65,10 @@ namespace quan_ly_ban_hang
                     dsDoUong.Add(sanPham);
                 }
             }
-            gridDoUong.Columns.Add("IdDoAn", "Mã Đồ Ăn");
-            gridDoUong.Columns.Add("TenDoAn", "Tên Đồ Ăn");
-            gridDoUong.Columns.Add("SoLuongDoAn", "Số Lượng");
-            gridDoUong.Columns.Add("GiaDoAn", " Giá Tiền");
+            gridDoUong.Columns.Add("IdDoUong", "Mã Đồ Uống");
+            gridDoUong.Columns.Add("TenDoUong", "Tên Đồ Uống");
+            gridDoUong.Columns.Add("SoLuongDoUong", "Số Lượng");
+            gridDoUong.Columns.Add("GiaDoUong", " Giá Tiền");
             foreach (SanPham sanPham in dsDoUong)
             {
                 DataGridViewRow row = new DataGridViewRow();

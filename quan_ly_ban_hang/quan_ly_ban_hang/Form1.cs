@@ -45,7 +45,6 @@ namespace quan_ly_ban_hang
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -226,15 +225,6 @@ namespace quan_ly_ban_hang
             this.button4.Text = "Thanh Toán";
             this.button4.UseVisualStyleBackColor = false;
             // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(710, 610);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(81, 28);
-            this.button5.TabIndex = 11;
-            this.button5.Text = "In Hoá Đơn";
-            this.button5.UseVisualStyleBackColor = true;
-            // 
             // button6
             // 
             this.button6.Location = new System.Drawing.Point(797, 610);
@@ -303,7 +293,6 @@ namespace quan_ly_ban_hang
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel2);
@@ -362,6 +351,12 @@ namespace quan_ly_ban_hang
                 activeHD = new HoaDon();
                 activeHD.MaHD = 1;
                 activeHD.NgayTao = DateTime.UtcNow;
+            }else
+            {
+                activeHD = new HoaDon();
+                activeHD.MaHD = db.HoaDons.Count() +1;
+                activeHD.NgayTao= DateTime.UtcNow;
+
             }
         }
     }

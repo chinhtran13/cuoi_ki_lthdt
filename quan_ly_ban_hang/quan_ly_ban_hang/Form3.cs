@@ -15,6 +15,8 @@ namespace quan_ly_ban_hang
         List<SanPham> dsDoAn = new List<SanPham>();
 
         QLYcuahangEntities db = new QLYcuahangEntities();
+        CTHD chitietHD = new CTHD();
+        HoaDon hoaDon;
         SanPham doAn = null;
         public Form3()
         {
@@ -25,7 +27,7 @@ namespace quan_ly_ban_hang
         {
             Form_Update_Search();
         }
-
+        
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -38,6 +40,7 @@ namespace quan_ly_ban_hang
 
         private void Form3_Load(object sender, EventArgs e)
         {
+            hoaDon = db.HoaDons.Last();
             foreach (SanPham sanPham in db.SanPhams)
             {
                 if (sanPham.LoaiSP == "Do An")
@@ -63,10 +66,15 @@ namespace quan_ly_ban_hang
         }
         private void Form_Update_Search()
         {
-            gridViewDoAn = new DataGridView();
+            dsDoAn = new List<SanPham>();
+            if(gridViewDoAn.Rows.Count > 0)
+            {
+                gridViewDoAn.Rows.Clear();
+            }
+            
             foreach (SanPham sanPham in db.SanPhams)
             {
-                if(sanPham.LoaiSP == "Do An" & sanPham.TenSP.StartsWith(textBox1.ToString()))
+                if(sanPham.LoaiSP == "Do An" & sanPham.TenSP.ToLower().StartsWith(textBox1.Text.ToLower()))
                 {
                     dsDoAn.Add(sanPham);
                 }
@@ -89,6 +97,11 @@ namespace quan_ly_ban_hang
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             Form_Update_Search();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
