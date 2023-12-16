@@ -1,4 +1,4 @@
-DROP DATABASE QLYcuahang
+﻿DROP DATABASE QLYcuahang
 CREATE DATABASE QLYcuahang
 ON PRIMARY
     (NAME = QLBanHang_data,
@@ -187,3 +187,6 @@ VALUES
 ('HD3', 'DU3', 30, 30000, 900000),
 ('HD4', 'DU4', 40, 40000, 1600000),
 ('HD5', 'DU5', 50, 50000, 2500000);
+--update 17/12
+ALTER TABLE HoaDon
+ADD TrangThai NVARCHAR(20) DEFAULT N'Chưa hoàn thành' NOT NULL;
