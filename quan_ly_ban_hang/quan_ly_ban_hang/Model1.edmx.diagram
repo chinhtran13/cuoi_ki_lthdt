@@ -4,13 +4,13 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="ed4f1634c2854597a62dcb93672c9b94" Name="Diagram1">
-        <EntityTypeShape EntityType="QLYcuahangModel.CTHD" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+      <Diagram DiagramId="2f51f086e4f740daba48149d74832d74" Name="Diagram1">
+        <EntityTypeShape EntityType="QLYcuahangModel.CTHD" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
         <EntityTypeShape EntityType="QLYcuahangModel.HoaDon" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLYcuahangModel.KhuyenMai" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLYcuahangModel.KhuyenMai" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
         <EntityTypeShape EntityType="QLYcuahangModel.NhanVien" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLYcuahangModel.SanPham" Width="1.5" PointX="3" PointY="5.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLYcuahangModel.ThanhVien" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLYcuahangModel.SanPham" Width="1.5" PointX="3" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLYcuahangModel.ThanhVien" Width="1.5" PointX="0.75" PointY="7.875" IsExpanded="true" />
         <AssociationConnector Association="QLYcuahangModel.FK__CTHD__MaHD__440B1D61" ManuallyRouted="false" />
         <AssociationConnector Association="QLYcuahangModel.FK__CTHD__MaSP__44FF419A" ManuallyRouted="false" />
         <AssociationConnector Association="QLYcuahangModel.FK__HoaDon__MaKM__412EB0B6" ManuallyRouted="false" />

@@ -25,6 +25,7 @@
           <Property Name="SDT" Type="varchar" MaxLength="15" />
           <Property Name="MaNV" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="MaKM" Type="varchar" MaxLength="50" />
+          <Property Name="TrangThai" Type="nvarchar" MaxLength="20" Nullable="false" />
         </EntityType>
         <EntityType Name="KhuyenMai">
           <Key>
@@ -179,6 +180,7 @@
           <Property Name="SDT" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
           <Property Name="MaNV" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="MaKM" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TrangThai" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="CTHDs" Relationship="Self.FK__CTHD__MaHD__440B1D61" FromRole="HoaDon" ToRole="CTHD" />
           <NavigationProperty Name="KhuyenMai" Relationship="Self.FK__HoaDon__MaKM__412EB0B6" FromRole="HoaDon" ToRole="KhuyenMai" />
           <NavigationProperty Name="NhanVien" Relationship="Self.FK__HoaDon__MaNV__403A8C7D" FromRole="HoaDon" ToRole="NhanVien" />
@@ -339,6 +341,7 @@
                 <ScalarProperty Name="SDT" ColumnName="SDT" />
                 <ScalarProperty Name="MaNV" ColumnName="MaNV" />
                 <ScalarProperty Name="MaKM" ColumnName="MaKM" />
+                <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -25,6 +25,7 @@ namespace quan_ly_ban_hang
         public string SDT { get; set; }
         public string MaNV { get; set; }
         public string MaKM { get; set; }
+        public string TrangThai { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CTHD> CTHDs { get; set; }

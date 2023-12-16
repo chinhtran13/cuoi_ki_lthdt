@@ -18,7 +18,7 @@ namespace quan_ly_ban_hang
         CTHD chitietHD = new CTHD();
         HoaDon hoaDon;
         HoaDon active_HD;
-        SanPham doAn = null;
+        SanPham doAn;
         public Form3(HoaDon active, Form1 mainForm)
         {
             active_HD = active;
@@ -30,10 +30,10 @@ namespace quan_ly_ban_hang
         {
             Form_Update_Search();
         }
-        
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        DataGridViewRow SelectRow;
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            SelectRow = gridViewDoAn.Rows[e.RowIndex];
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -59,10 +59,10 @@ namespace quan_ly_ban_hang
             {
                 DataGridViewRow row = new DataGridViewRow();
                 row.CreateCells(gridViewDoAn);
-                row.Cells[0].Value = sanPham.MaSP + "";
-                row.Cells[1].Value = sanPham.TenSP + "";
-                row.Cells[2].Value = sanPham.SoLuong + "";
-                row.Cells[3].Value = sanPham.Gia + "";
+                row.Cells[0].Value = sanPham.MaSP;
+                row.Cells[1].Value = sanPham.TenSP;
+                row.Cells[2].Value =    sanPham.SoLuong;
+                row.Cells[3].Value = sanPham.Gia;
                 gridViewDoAn.Rows.Add(row);
             }
 
@@ -82,18 +82,14 @@ namespace quan_ly_ban_hang
                     dsDoAn.Add(sanPham);
                 }
             }
-            gridViewDoAn.Columns.Add("IdDoAn", "Mã Đồ Ăn");
-            gridViewDoAn.Columns.Add("TenDoAn", "Tên Đồ Ăn");
-            gridViewDoAn.Columns.Add("SoLuongDoAn", "Số Lượng");
-            gridViewDoAn.Columns.Add("GiaDoAn", " Giá Tiền");
             foreach (SanPham sanPham in dsDoAn)
             {
                 DataGridViewRow row = new DataGridViewRow();
                 row.CreateCells(gridViewDoAn);
-                row.Cells[0].Value = sanPham.MaSP + "";
-                row.Cells[1].Value = sanPham.TenSP + "";
-                row.Cells[2].Value = sanPham.SoLuong + "";
-                row.Cells[3].Value = sanPham.Gia + "";
+                row.Cells[0].Value = sanPham.MaSP;
+                row.Cells[1].Value = sanPham.TenSP;
+                row.Cells[2].Value =    sanPham.SoLuong;
+                row.Cells[3].Value =    sanPham.Gia;
                 gridViewDoAn.Rows.Add(row);
             }
         }
@@ -116,54 +112,50 @@ namespace quan_ly_ban_hang
                     dsDoAn.Add(sanPham);
                 }
             }
-            gridViewDoAn.Columns.Add("IdDoAn", "Mã Đồ Ăn");
-            gridViewDoAn.Columns.Add("TenDoAn", "Tên Đồ Ăn");
-            gridViewDoAn.Columns.Add("SoLuongDoAn", "Số Lượng");
-            gridViewDoAn.Columns.Add("GiaDoAn", " Giá Tiền");
             foreach (SanPham sanPham in dsDoAn)
             {
                 DataGridViewRow row = new DataGridViewRow();
                 row.CreateCells(gridViewDoAn);
-                row.Cells[0].Value = sanPham.MaSP + "";
-                row.Cells[1].Value = sanPham.TenSP + "";
-                row.Cells[2].Value = sanPham.SoLuong + "";
-                row.Cells[3].Value = sanPham.Gia + "";
+                row.Cells[0].Value = sanPham.MaSP;
+                row.Cells[1].Value = sanPham.TenSP;
+                row.Cells[2].Value = sanPham.SoLuong;
+                row.Cells[3].Value = sanPham.Gia;
                 gridViewDoAn.Rows.Add(row);
             }
         }
         private void btn_Them_Click(object sender, EventArgs e)
         {
-            DataGridViewRow selectRow = gridViewDoAn.CurrentRow;
+            active_HD = mainForm.activeHD;
+            doAn = new SanPham();
             chitietHD.HoaDon = hoaDon;
             chitietHD.MaHD = hoaDon.MaHD;
-            doAn.MaSP = selectRow.Cells[1].Value.ToString(); 
-            chitietHD.MaSP = doAn.MaSP;
-            doAn.TenSP = selectRow.Cells[2].Value.ToString();
-            foreach (CTHD cthd in hoaDon.CTHDs) 
-            {
-                if(cthd.SanPham.MaSP == doAn.MaSP)
-                {
-                    doAn.SoLuong += 1;
-                }
-                else
-                {
-                    doAn.SoLuong = 1;
-                    break;
-                }
-            }
-            doAn.Gia = double.Parse(selectRow.Cells[3].Value.ToString());
+            doAn.MaSP = SelectRow.Cells[0].Value.ToString();
+            doAn.TenSP = SelectRow.Cells[1].Value?.ToString();
+            doAn.Gia = double.Parse(SelectRow.Cells[3].Value?.ToString());
+
+            chitietHD.MaSP = SelectRow.Cells[0].Value.ToString();
             foreach (SanPham item in db.SanPhams)
             {
                 if(item.MaSP == doAn.MaSP)
                 {
-                    item.SoLuong -= 1;
+                    item.SoLuong += 1;
                 }
             }
-            Form_Update();
+
             chitietHD.SanPham = doAn;
-            chitietHD.DonGia = doAn.Gia * doAn.SoLuong;
-            
+            foreach (CTHD cthd in active_HD.CTHDs) 
+            {
+                if(cthd.SanPham.MaSP == SelectRow.Cells[0].Value.ToString())
+                {
+                    chitietHD.SanPham.SoLuong +=1;
+                    break;
+                }
+
+            }   
+                    active_HD.CTHDs.Add(chitietHD);
             db.SaveChanges();
+            Form_Update();
+            mainForm.Form_Update();
         }
     }
 }

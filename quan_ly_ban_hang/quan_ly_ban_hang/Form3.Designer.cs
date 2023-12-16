@@ -75,7 +75,7 @@
             this.gridViewDoAn.Name = "gridViewDoAn";
             this.gridViewDoAn.Size = new System.Drawing.Size(634, 345);
             this.gridViewDoAn.TabIndex = 3;
-            this.gridViewDoAn.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.gridViewDoAn.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // button2
             // 

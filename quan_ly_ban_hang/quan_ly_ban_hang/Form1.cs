@@ -13,7 +13,7 @@ namespace quan_ly_ban_hang
     public partial class Form1 : Form
     {
         QLYcuahangEntities db = new QLYcuahangEntities();
-        HoaDon activeHD;
+        public HoaDon activeHD;
         List<HoaDon> dsHoaDon;
         CTHD ActiveHD_CT;
         List<CTHD> ActiveHD_CT_DS;
@@ -324,18 +324,21 @@ namespace quan_ly_ban_hang
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            
+        }
+
+        public void Form_Update()
+        {
             foreach (CTHD cthd in activeHD.CTHDs)
             {
                 DataGridViewRow row = new DataGridViewRow();
+                row.CreateCells(dataGridView1);
                 row.Cells[0].Value = cthd.SanPham.MaSP;
                 row.Cells[1].Value = cthd.SanPham.TenSP;
                 row.Cells[2].Value = cthd.SanPham.SoLuong;
+                row.Cells[3].Value = cthd.SanPham.Gia;
+                dataGridView1.Rows.Add(row);
             }
-        }
-
-        public void Form_Update(object sender, EventArgs e)
-        {
-          
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -358,9 +361,12 @@ namespace quan_ly_ban_hang
             foreach (CTHD cthd in activeHD.CTHDs)
             {
                 DataGridViewRow row = new DataGridViewRow();
+                row.CreateCells(dataGridView1);
                 row.Cells[0].Value = cthd.SanPham.MaSP;
                 row.Cells[1].Value = cthd.SanPham.TenSP;
                 row.Cells[2].Value = cthd.SanPham.SoLuong;
+                row.Cells[3].Value = cthd.SanPham.Gia;
+                dataGridView1.Rows.Add(row);
             }
             
 
