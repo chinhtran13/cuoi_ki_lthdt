@@ -128,3 +128,62 @@ VALUES
 
 select *
 from CTHD
+
+--update 10pm 16/12
+delete from CTHD
+delete from HoaDon
+delete from SanPham
+delete from ThanhVien
+delete from KhuyenMai
+delete from NhanVien
+-- Inserting data into SanPham	
+INSERT INTO SanPham (MaSP, TenSP, Gia, SoLuong, LoaiSP)
+VALUES
+('DA1', 'Product 1', 10000, 100, 'Do An'),
+('DA2', 'Product 2', 20000, 200, 'Do An'),
+('DU3', 'Product 3', 30000, 300, 'Do Uong'),
+('DU4', 'Product 4', 40000, 400, 'Do Uong'),
+('DU5', 'Product 5', 50000, 500, 'Do Uong');
+
+-- Inserting data into KhuyenMai
+INSERT INTO KhuyenMai (MaKM, LoaiKM, NgayBatDau, NgayKetThuc, ComboKM, PhanTramGiam)
+VALUES
+('D1', 'Discount', '2023-01-01', '2023-01-31','', 10),
+('CB1', 'Discount', '2023-02-01', '2023-02-28', 'Product 2, 1,3', 15)
+
+-- Inserting data into NhanVien
+INSERT INTO NhanVien (MaNV, TenNV, SDT, Email)
+VALUES
+('NV1', 'Nguyen Van A', '0123456789', 'nva@example.com'),
+('NV2', 'Le Thi B', '0123456780', 'ltb@example.com'),
+('NV3', 'Tran Van C', '0123456781', 'tvc@example.com'),
+('NV4', 'Pham Thi D', '0123456782', 'ptd@example.com'),
+('NV5', 'Hoang Van E', '0123456783', 'hve@example.com');
+
+-- Inserting data into ThanhVien
+INSERT INTO ThanhVien (SDTTV, TenTV, Email)
+VALUES
+('0987654321', 'Nguyen Van F', 'nvf@example.com'),
+('0987654320', 'Le Thi G', 'ltg@example.com'),
+('0987654319', 'Tran Van H', 'tvh@example.com'),
+('0987654318', 'Pham Thi I', 'pti@example.com'),
+('0987654317', 'Hoang Van J', 'hvj@example.com');
+
+
+-- Inserting data into HoaDon
+INSERT INTO HoaDon (MaHD, NgayTao, SDT, MaNV, MaKM)
+VALUES
+('HD1', '2023-06-01', '0987654321', 'NV1', 'D1'),
+('HD2', '2023-06-02', '0987654320', 'NV2', 'CB1'),
+('HD3', '2023-06-03', null, 'NV3', null),
+('HD4', '2023-06-04', null, 'NV4', null),
+('HD5', '2023-06-05', '0987654317', 'NV5', null);
+
+-- Inserting data into CTHD
+INSERT INTO CTHD (MaHD, MaSP, SL, DonGia, TongTien)
+VALUES
+('HD1', 'DA1', 10, 10000, 100000),
+('HD2', 'DA2', 20, 20000, 400000),
+('HD3', 'DU3', 30, 30000, 900000),
+('HD4', 'DU4', 40, 40000, 1600000),
+('HD5', 'DU5', 50, 50000, 2500000);
