@@ -55,3 +55,16 @@ D:\cuoi_ki_lthdt\quan_ly_ban_hang\quan_ly_ban_hang\obj\Debug\quan_ly_ban_hang.cs
 D:\cuoi_ki_lthdt\quan_ly_ban_hang\quan_ly_ban_hang\obj\Debug\quan_ly_ban_hang.csproj.CopyComplete
 D:\cuoi_ki_lthdt\quan_ly_ban_hang\quan_ly_ban_hang\obj\Debug\quan_ly_ban_hang.exe
 D:\cuoi_ki_lthdt\quan_ly_ban_hang\quan_ly_ban_hang\obj\Debug\quan_ly_ban_hang.pdb
+E:\c# năm 2 kì 1\cuoi_ki_lthdt\quan_ly_ban_hang\quan_ly_ban_hang\bin\Debug\EntityFramework.dll
+E:\c# năm 2 kì 1\cuoi_ki_lthdt\quan_ly_ban_hang\quan_ly_ban_hang\bin\Debug\EntityFramework.SqlServer.dll
+E:\c# năm 2 kì 1\cuoi_ki_lthdt\quan_ly_ban_hang\quan_ly_ban_hang\bin\Debug\EntityFramework.xml
+E:\c# năm 2 kì 1\cuoi_ki_lthdt\quan_ly_ban_hang\quan_ly_ban_hang\bin\Debug\EntityFramework.SqlServer.xml
+E:\c# năm 2 kì 1\cuoi_ki_lthdt\quan_ly_ban_hang\quan_ly_ban_hang\obj\Debug\quan_ly_ban_hang.Form2.resources
+E:\c# năm 2 kì 1\cuoi_ki_lthdt\quan_ly_ban_hang\quan_ly_ban_hang\obj\Debug\quan_ly_ban_hang.Form3.resources
+E:\c# năm 2 kì 1\cuoi_ki_lthdt\quan_ly_ban_hang\quan_ly_ban_hang\obj\Debug\quan_ly_ban_hang.Form4.resources
+E:\c# năm 2 kì 1\cuoi_ki_lthdt\quan_ly_ban_hang\quan_ly_ban_hang\obj\Debug\quan_ly_ban_hang.Form5.resources
+E:\c# năm 2 kì 1\cuoi_ki_lthdt\quan_ly_ban_hang\quan_ly_ban_hang\obj\Debug\quan_ly_ban_hang.Form6.resources
+E:\c# năm 2 kì 1\cuoi_ki_lthdt\quan_ly_ban_hang\quan_ly_ban_hang\obj\Debug\quan_ly_ban_hang.Form7.resources
+E:\c# năm 2 kì 1\cuoi_ki_lthdt\quan_ly_ban_hang\quan_ly_ban_hang\obj\Debug\quan_ly_ban_hang.Form8.resources
+E:\c# năm 2 kì 1\cuoi_ki_lthdt\quan_ly_ban_hang\quan_ly_ban_hang\obj\Debug\quan_ly_ban_hang.Form9.resources
+E:\c# năm 2 kì 1\cuoi_ki_lthdt\quan_ly_ban_hang\quan_ly_ban_hang\obj\Debug\quan_ly_ban_hang.csproj.CopyComplete

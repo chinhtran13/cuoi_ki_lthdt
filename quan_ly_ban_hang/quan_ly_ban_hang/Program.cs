@@ -16,7 +16,7 @@ namespace quan_ly_ban_hang
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new Form7());
         }
     }
 }
