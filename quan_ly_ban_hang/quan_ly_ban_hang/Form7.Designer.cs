@@ -43,9 +43,10 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.btnXong = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnThem = new System.Windows.Forms.Button();
+            this.btnXoa = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
+            this.btnSua = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDoAn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewThucUong)).BeginInit();
             this.SuspendLayout();
@@ -60,6 +61,7 @@
             this.dataGridViewDoAn.RowHeadersWidth = 51;
             this.dataGridViewDoAn.Size = new System.Drawing.Size(458, 236);
             this.dataGridViewDoAn.TabIndex = 0;
+            this.dataGridViewDoAn.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDoAn_CellClick_1);
             // 
             // label1
             // 
@@ -76,12 +78,13 @@
             // 
             this.dataGridViewThucUong.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dataGridViewThucUong.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewThucUong.Location = new System.Drawing.Point(461, 256);
+            this.dataGridViewThucUong.Location = new System.Drawing.Point(462, 256);
             this.dataGridViewThucUong.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dataGridViewThucUong.Name = "dataGridViewThucUong";
             this.dataGridViewThucUong.RowHeadersWidth = 51;
             this.dataGridViewThucUong.Size = new System.Drawing.Size(458, 250);
             this.dataGridViewThucUong.TabIndex = 2;
+            this.dataGridViewThucUong.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewThucUong_CellClick);
             // 
             // label2
             // 
@@ -177,7 +180,7 @@
             // label7
             // 
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(410, 102);
+            this.label7.Location = new System.Drawing.Point(401, 102);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(53, 66);
             this.label7.TabIndex = 13;
@@ -194,34 +197,48 @@
             this.btnXong.UseVisualStyleBackColor = true;
             this.btnXong.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // btnThem
             // 
-            this.button2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button2.Location = new System.Drawing.Point(119, 350);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(76, 33);
-            this.button2.TabIndex = 17;
-            this.button2.Text = "Thêm";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnThem.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnThem.Location = new System.Drawing.Point(102, 350);
+            this.btnThem.Name = "btnThem";
+            this.btnThem.Size = new System.Drawing.Size(76, 33);
+            this.btnThem.TabIndex = 17;
+            this.btnThem.Text = "Thêm";
+            this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click_1);
             // 
-            // button3
+            // btnXoa
             // 
-            this.button3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button3.Location = new System.Drawing.Point(232, 350);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(76, 33);
-            this.button3.TabIndex = 18;
-            this.button3.Text = "Xoá";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnXoa.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.btnXoa.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnXoa.Location = new System.Drawing.Point(266, 350);
+            this.btnXoa.Name = "btnXoa";
+            this.btnXoa.Size = new System.Drawing.Size(76, 33);
+            this.btnXoa.TabIndex = 18;
+            this.btnXoa.Text = "Xoá";
+            this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click_1);
             // 
             // label9
             // 
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(372, 347);
+            this.label9.Location = new System.Drawing.Point(363, 350);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(91, 90);
             this.label9.TabIndex = 15;
             this.label9.Text = "Thức Uống";
+            // 
+            // btnSua
+            // 
+            this.btnSua.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnSua.Location = new System.Drawing.Point(184, 350);
+            this.btnSua.Name = "btnSua";
+            this.btnSua.Size = new System.Drawing.Size(76, 33);
+            this.btnSua.TabIndex = 19;
+            this.btnSua.Text = "Sửa";
+            this.btnSua.UseVisualStyleBackColor = true;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click_1);
             // 
             // Form7
             // 
@@ -229,8 +246,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Teal;
             this.ClientSize = new System.Drawing.Size(933, 519);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnSua);
+            this.Controls.Add(this.btnXoa);
+            this.Controls.Add(this.btnThem);
             this.Controls.Add(this.btnXong);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label7);
@@ -252,6 +270,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "Form7";
             this.Text = "Form7";
+            this.Load += new System.EventHandler(this.Form7_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDoAn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewThucUong)).EndInit();
             this.ResumeLayout(false);
@@ -276,8 +295,9 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnXong;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnThem;
+        private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button btnSua;
     }
 }
