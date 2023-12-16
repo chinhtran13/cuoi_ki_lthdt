@@ -20,7 +20,7 @@ namespace quan_ly_ban_hang
             this.HoaDons = new HashSet<HoaDon>();
         }
     
-        public int MaNV { get; set; }
+        public string MaNV { get; set; }
         public string TenNV { get; set; }
         public string SDT { get; set; }
         public string Email { get; set; }

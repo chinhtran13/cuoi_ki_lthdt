@@ -20,7 +20,7 @@ namespace quan_ly_ban_hang
             this.CTHDs = new HashSet<CTHD>();
         }
     
-        public int MaSP { get; set; }
+        public string MaSP { get; set; }
         public string TenSP { get; set; }
         public double Gia { get; set; }
         public int SoLuong { get; set; }

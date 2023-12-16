@@ -14,8 +14,8 @@ namespace quan_ly_ban_hang
     
     public partial class CTHD
     {
-        public int MaHD { get; set; }
-        public int MaSP { get; set; }
+        public string MaHD { get; set; }
+        public string MaSP { get; set; }
         public int SL { get; set; }
         public double DonGia { get; set; }
         public double TongTien { get; set; }

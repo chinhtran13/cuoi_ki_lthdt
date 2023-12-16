@@ -18,8 +18,8 @@ namespace quan_ly_ban_hang
         CTHD ActiveHD_CT;
         List<CTHD> ActiveHD_CT_DS;
         Form2 form2 = new Form2();
-        Form3 form3 = new Form3();
-        Form4 form4 = new Form4();
+        Form3 form3;
+        Form4 form4;
         public Form1()
         {
             InitializeComponent();
@@ -27,13 +27,12 @@ namespace quan_ly_ban_hang
 
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button8 = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -91,7 +90,6 @@ namespace quan_ly_ban_hang
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.PaleTurquoise;
-            this.panel2.Controls.Add(this.button8);
             this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.textBox1);
             this.panel2.Controls.Add(this.label2);
@@ -101,15 +99,6 @@ namespace quan_ly_ban_hang
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(185, 604);
             this.panel2.TabIndex = 1;
-            // 
-            // button8
-            // 
-            this.button8.Location = new System.Drawing.Point(57, 566);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(75, 23);
-            this.button8.TabIndex = 5;
-            this.button8.Text = "Lưu";
-            this.button8.UseVisualStyleBackColor = true;
             // 
             // label7
             // 
@@ -164,28 +153,28 @@ namespace quan_ly_ban_hang
             // dataGridView1
             // 
             this.dataGridView1.BackgroundColor = System.Drawing.Color.PaleTurquoise;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
             this.Column3,
             this.Column4});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.GridColor = System.Drawing.Color.Teal;
             this.dataGridView1.Location = new System.Drawing.Point(451, 107);
             this.dataGridView1.Name = "dataGridView1";
@@ -323,7 +312,7 @@ namespace quan_ly_ban_hang
 
         private void button2_Click(object sender, EventArgs e)
         {
-            
+            form3 = new Form3(activeHD,this);
             form3.ShowDialog();
         }
 
@@ -335,7 +324,13 @@ namespace quan_ly_ban_hang
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            foreach (CTHD cthd in activeHD.CTHDs)
+            {
+                DataGridViewRow row = new DataGridViewRow();
+                row.Cells[0].Value = cthd.SanPham.MaSP;
+                row.Cells[1].Value = cthd.SanPham.TenSP;
+                row.Cells[2].Value = cthd.SanPham.SoLuong;
+            }
         }
 
         public void Form_Update(object sender, EventArgs e)
@@ -345,19 +340,31 @@ namespace quan_ly_ban_hang
 
         private void Form1_Load(object sender, EventArgs e)
         {
+
             dsHoaDon = db.HoaDons.ToList();
-            if(dsHoaDon.Count <= 0)
+            if (dsHoaDon.Count <= 0)
             {
                 activeHD = new HoaDon();
-                activeHD.MaHD = 1;
+                activeHD.MaHD = "HD1";
                 activeHD.NgayTao = DateTime.UtcNow;
-            }else
+            }
+            else
             {
                 activeHD = new HoaDon();
-                activeHD.MaHD = db.HoaDons.Count() +1;
-                activeHD.NgayTao= DateTime.UtcNow;
+                activeHD.MaHD = "HD" + (db.HoaDons.Count() + 1).ToString();
+                activeHD.NgayTao = DateTime.UtcNow;
 
             }
+            foreach (CTHD cthd in activeHD.CTHDs)
+            {
+                DataGridViewRow row = new DataGridViewRow();
+                row.Cells[0].Value = cthd.SanPham.MaSP;
+                row.Cells[1].Value = cthd.SanPham.TenSP;
+                row.Cells[2].Value = cthd.SanPham.SoLuong;
+            }
+            
+
         }
+
     }
 }

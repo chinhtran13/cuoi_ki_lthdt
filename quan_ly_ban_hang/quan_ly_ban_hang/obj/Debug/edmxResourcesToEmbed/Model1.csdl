@@ -5,8 +5,8 @@
       <PropertyRef Name="MaHD" />
       <PropertyRef Name="MaSP" />
     </Key>
-    <Property Name="MaHD" Type="Int32" Nullable="false" />
-    <Property Name="MaSP" Type="Int32" Nullable="false" />
+    <Property Name="MaHD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MaSP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="SL" Type="Int32" Nullable="false" />
     <Property Name="DonGia" Type="Double" Nullable="false" />
     <Property Name="TongTien" Type="Double" Nullable="false" />
@@ -17,11 +17,11 @@
     <Key>
       <PropertyRef Name="MaHD" />
     </Key>
-    <Property Name="MaHD" Type="Int32" Nullable="false" />
+    <Property Name="MaHD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="NgayTao" Type="DateTime" Nullable="false" Precision="0" />
-    <Property Name="SDT" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="MaNV" Type="Int32" Nullable="false" />
-    <Property Name="MaKM" Type="Int32" />
+    <Property Name="SDT" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="MaNV" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MaKM" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="CTHDs" Relationship="Self.FK__CTHD__MaHD__440B1D61" FromRole="HoaDon" ToRole="CTHD" />
     <NavigationProperty Name="KhuyenMai" Relationship="Self.FK__HoaDon__MaKM__412EB0B6" FromRole="HoaDon" ToRole="KhuyenMai" />
     <NavigationProperty Name="NhanVien" Relationship="Self.FK__HoaDon__MaNV__403A8C7D" FromRole="HoaDon" ToRole="NhanVien" />
@@ -31,7 +31,7 @@
     <Key>
       <PropertyRef Name="MaKM" />
     </Key>
-    <Property Name="MaKM" Type="Int32" Nullable="false" />
+    <Property Name="MaKM" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="LoaiKM" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="NgayBatDau" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="NgayKetThuc" Type="DateTime" Nullable="false" Precision="0" />
@@ -43,7 +43,7 @@
     <Key>
       <PropertyRef Name="MaNV" />
     </Key>
-    <Property Name="MaNV" Type="Int32" Nullable="false" />
+    <Property Name="MaNV" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="TenNV" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="SDT" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
@@ -53,7 +53,7 @@
     <Key>
       <PropertyRef Name="MaSP" />
     </Key>
-    <Property Name="MaSP" Type="Int32" Nullable="false" />
+    <Property Name="MaSP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="TenSP" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Gia" Type="Double" Nullable="false" />
     <Property Name="SoLuong" Type="Int32" Nullable="false" />
@@ -118,7 +118,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK__HoaDon__SDT__3F466844">
-    <End Role="ThanhVien" Type="Self.ThanhVien" Multiplicity="1" />
+    <End Role="ThanhVien" Type="Self.ThanhVien" Multiplicity="0..1" />
     <End Role="HoaDon" Type="Self.HoaDon" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="ThanhVien">

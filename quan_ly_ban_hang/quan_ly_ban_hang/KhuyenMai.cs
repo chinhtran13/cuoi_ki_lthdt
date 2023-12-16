@@ -20,7 +20,7 @@ namespace quan_ly_ban_hang
             this.HoaDons = new HashSet<HoaDon>();
         }
     
-        public int MaKM { get; set; }
+        public string MaKM { get; set; }
         public string LoaiKM { get; set; }
         public System.DateTime NgayBatDau { get; set; }
         public System.DateTime NgayKetThuc { get; set; }

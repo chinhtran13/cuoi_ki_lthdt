@@ -20,11 +20,11 @@ namespace quan_ly_ban_hang
             this.CTHDs = new HashSet<CTHD>();
         }
     
-        public int MaHD { get; set; }
+        public string MaHD { get; set; }
         public System.DateTime NgayTao { get; set; }
         public string SDT { get; set; }
-        public int MaNV { get; set; }
-        public Nullable<int> MaKM { get; set; }
+        public string MaNV { get; set; }
+        public string MaKM { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CTHD> CTHDs { get; set; }

@@ -5,8 +5,8 @@
       <PropertyRef Name="MaHD" />
       <PropertyRef Name="MaSP" />
     </Key>
-    <Property Name="MaHD" Type="int" Nullable="false" />
-    <Property Name="MaSP" Type="int" Nullable="false" />
+    <Property Name="MaHD" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MaSP" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="SL" Type="int" Nullable="false" />
     <Property Name="DonGia" Type="float" Nullable="false" />
     <Property Name="TongTien" Type="float" Nullable="false" />
@@ -15,17 +15,17 @@
     <Key>
       <PropertyRef Name="MaHD" />
     </Key>
-    <Property Name="MaHD" Type="int" Nullable="false" />
+    <Property Name="MaHD" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="NgayTao" Type="date" Nullable="false" />
-    <Property Name="SDT" Type="varchar" MaxLength="15" Nullable="false" />
-    <Property Name="MaNV" Type="int" Nullable="false" />
-    <Property Name="MaKM" Type="int" />
+    <Property Name="SDT" Type="varchar" MaxLength="15" />
+    <Property Name="MaNV" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MaKM" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="KhuyenMai">
     <Key>
       <PropertyRef Name="MaKM" />
     </Key>
-    <Property Name="MaKM" Type="int" Nullable="false" />
+    <Property Name="MaKM" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="LoaiKM" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="NgayBatDau" Type="date" Nullable="false" />
     <Property Name="NgayKetThuc" Type="date" Nullable="false" />
@@ -36,7 +36,7 @@
     <Key>
       <PropertyRef Name="MaNV" />
     </Key>
-    <Property Name="MaNV" Type="int" Nullable="false" />
+    <Property Name="MaNV" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="TenNV" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="SDT" Type="varchar" MaxLength="15" Nullable="false" />
     <Property Name="Email" Type="varchar" MaxLength="255" Nullable="false" />
@@ -45,7 +45,7 @@
     <Key>
       <PropertyRef Name="MaSP" />
     </Key>
-    <Property Name="MaSP" Type="int" Nullable="false" />
+    <Property Name="MaSP" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="TenSP" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="Gia" Type="float" Nullable="false" />
     <Property Name="SoLuong" Type="int" Nullable="false" />
@@ -108,7 +108,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK__HoaDon__SDT__3F466844">
-    <End Role="ThanhVien" Type="Self.ThanhVien" Multiplicity="1" />
+    <End Role="ThanhVien" Type="Self.ThanhVien" Multiplicity="0..1" />
     <End Role="HoaDon" Type="Self.HoaDon" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="ThanhVien">
