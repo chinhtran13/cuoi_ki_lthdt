@@ -190,3 +190,7 @@ VALUES
 --update 17/12
 ALTER TABLE HoaDon
 ADD TrangThai NVARCHAR(20) DEFAULT N'Chưa hoàn thành' NOT NULL;
+
+
+select * from HoaDon
+select * from CTHD

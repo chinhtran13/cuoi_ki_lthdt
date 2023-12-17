@@ -14,7 +14,7 @@ namespace quan_ly_ban_hang
     {
         List<SanPham> dsDoAn = new List<SanPham>();
         Form1 mainForm;
-        QLYcuahangEntities db = new QLYcuahangEntities();
+        QLYcuahangEntities2 db = new QLYcuahangEntities2();
         CTHD chitietHD = new CTHD();
         HoaDon hoaDon;
         HoaDon active_HD;

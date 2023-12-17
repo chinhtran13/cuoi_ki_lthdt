@@ -130,7 +130,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="QLYcuahangEntities" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="QLYcuahangEntities2" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="CTHDs" EntityType="Self.CTHD" />
     <EntitySet Name="HoaDons" EntityType="Self.HoaDon" />
     <EntitySet Name="KhuyenMais" EntityType="Self.KhuyenMai" />

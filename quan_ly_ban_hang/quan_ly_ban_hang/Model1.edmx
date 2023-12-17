@@ -288,7 +288,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="QLYcuahangEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="QLYcuahangEntities2" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="CTHDs" EntityType="Self.CTHD" />
           <EntitySet Name="HoaDons" EntityType="Self.HoaDon" />
           <EntitySet Name="KhuyenMais" EntityType="Self.KhuyenMai" />
@@ -321,7 +321,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="QLYcuahangModelStoreContainer" CdmEntityContainer="QLYcuahangEntities">
+        <EntityContainerMapping StorageEntityContainer="QLYcuahangModelStoreContainer" CdmEntityContainer="QLYcuahangEntities2">
           <EntitySetMapping Name="CTHDs">
             <EntityTypeMapping TypeName="QLYcuahangModel.CTHD">
               <MappingFragment StoreEntitySet="CTHD">

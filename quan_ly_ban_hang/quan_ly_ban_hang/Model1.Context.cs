@@ -13,10 +13,10 @@ namespace quan_ly_ban_hang
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class QLYcuahangEntities : DbContext
+    public partial class QLYcuahangEntities2 : DbContext
     {
-        public QLYcuahangEntities()
-            : base("name=QLYcuahangEntities")
+        public QLYcuahangEntities2()
+            : base("name=QLYcuahangEntities2")
         {
         }
     
