@@ -13,7 +13,7 @@ namespace quan_ly_ban_hang
 {
     public partial class Form6 : Form
     {
-        QLYcuahangEntities2 db = new QLYcuahangEntities2();
+        QLYcuahangEntities db = new QLYcuahangEntities();
         List<KhuyenMai> dsKM = new List<KhuyenMai>();
         KhuyenMai km = null;
         public Form6()

@@ -17,7 +17,7 @@ namespace quan_ly_ban_hang
         Form1 mainForm;
         HoaDon hoaDon;
         HoaDon active_HD;
-        QLYcuahangEntities2 db = new QLYcuahangEntities2();
+        QLYcuahangEntities db = new QLYcuahangEntities();
         SanPham doUong = null;
         public Form4()
         {

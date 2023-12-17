@@ -12,7 +12,7 @@ namespace quan_ly_ban_hang
 {
     public partial class Form1 : Form
     {
-        QLYcuahangEntities2 db = new QLYcuahangEntities2();
+        QLYcuahangEntities db = new QLYcuahangEntities();
         public HoaDon activeHD;
         List<HoaDon> dsHoaDon;
         CTHD ActiveHD_CT;
@@ -47,7 +47,7 @@ namespace quan_ly_ban_hang
             this.button6 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lbl_Tong = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.button7 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
@@ -244,15 +244,15 @@ namespace quan_ly_ban_hang
             this.label4.TabIndex = 12;
             this.label4.Text = "Tổng tiền sau khuyến mãi: ";
             // 
-            // label5
+            // lbl_Tong
             // 
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(537, 610);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(167, 23);
-            this.label5.TabIndex = 13;
-            this.label5.Text = "0";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.lbl_Tong.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Tong.Location = new System.Drawing.Point(537, 610);
+            this.lbl_Tong.Name = "lbl_Tong";
+            this.lbl_Tong.Size = new System.Drawing.Size(167, 23);
+            this.lbl_Tong.TabIndex = 13;
+            this.lbl_Tong.Text = "0";
+            this.lbl_Tong.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // label6
             // 
@@ -278,7 +278,7 @@ namespace quan_ly_ban_hang
             this.ClientSize = new System.Drawing.Size(959, 723);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
+            this.Controls.Add(this.lbl_Tong);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.button6);
@@ -329,16 +329,19 @@ namespace quan_ly_ban_hang
 
         public void Form_Update()
         {
-            foreach (CTHD cthd in activeHD.CTHDs)
-            {
+            dataGridView1.Rows.Clear();
+                foreach (CTHD cthd in activeHD.CTHDs)
+                {
+                cthd.TongTien = cthd.DonGia * cthd.SL;
                 DataGridViewRow row = new DataGridViewRow();
                 row.CreateCells(dataGridView1);
-                row.Cells[0].Value = cthd.SanPham.MaSP;
+                row.Cells[0].Value = cthd.MaSP;
                 row.Cells[1].Value = cthd.SanPham.TenSP;
-                row.Cells[2].Value = cthd.SanPham.SoLuong;
-                row.Cells[3].Value = cthd.SanPham.Gia;
+                row.Cells[2].Value = cthd.SL;
+                row.Cells[3].Value = cthd.TongTien;
                 dataGridView1.Rows.Add(row);
-            }
+                }
+                        
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -364,8 +367,8 @@ namespace quan_ly_ban_hang
                 row.CreateCells(dataGridView1);
                 row.Cells[0].Value = cthd.SanPham.MaSP;
                 row.Cells[1].Value = cthd.SanPham.TenSP;
-                row.Cells[2].Value = cthd.SanPham.SoLuong;
-                row.Cells[3].Value = cthd.SanPham.Gia;
+                row.Cells[2].Value = cthd.SL;
+                row.Cells[3].Value = cthd.SanPham.Gia * cthd.SL;
                 dataGridView1.Rows.Add(row);
             }
             

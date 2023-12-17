@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,7 +15,7 @@ namespace quan_ly_ban_hang
     {
         List<SanPham> dsDoAn = new List<SanPham>();
         Form1 mainForm;
-        QLYcuahangEntities2 db = new QLYcuahangEntities2();
+        QLYcuahangEntities db = new QLYcuahangEntities();
         CTHD chitietHD = new CTHD();
         HoaDon hoaDon;
         HoaDon active_HD;
@@ -34,6 +35,13 @@ namespace quan_ly_ban_hang
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             SelectRow = gridViewDoAn.Rows[e.RowIndex];
+            foreach(SanPham item in dsDoAn)
+            {
+                if(item.MaSP == SelectRow.Cells["IdDoAn"].Value)
+                {
+                    doAn = item;
+                }
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -125,37 +133,49 @@ namespace quan_ly_ban_hang
         }
         private void btn_Them_Click(object sender, EventArgs e)
         {
-            active_HD = mainForm.activeHD;
-            doAn = new SanPham();
-            chitietHD.HoaDon = hoaDon;
-            chitietHD.MaHD = hoaDon.MaHD;
-            doAn.MaSP = SelectRow.Cells[0].Value.ToString();
-            doAn.TenSP = SelectRow.Cells[1].Value?.ToString();
-            doAn.Gia = double.Parse(SelectRow.Cells[3].Value?.ToString());
-
-            chitietHD.MaSP = SelectRow.Cells[0].Value.ToString();
-            foreach (SanPham item in db.SanPhams)
+            chitietHD = new CTHD();
+            bool isExist = false;
+            chitietHD.HoaDon = active_HD;
+            foreach(CTHD cthd in active_HD.CTHDs) 
             {
-                if(item.MaSP == doAn.MaSP)
+                if(cthd.SanPham.MaSP == doAn.MaSP)
                 {
-                    item.SoLuong += 1;
+                    cthd.SL += 1;
+                   
+                    foreach(SanPham item in db.SanPhams)
+                    {
+                        if(item.MaSP == cthd.SanPham.MaSP)
+                        {
+                            item.SoLuong += 1;
+                        }
+                    }
+                    mainForm.Form_Update();
+                    Form_Update();
+                    db.SaveChanges();
+                    isExist = true;
                 }
             }
-
-            chitietHD.SanPham = doAn;
-            foreach (CTHD cthd in active_HD.CTHDs) 
+            if (!isExist)
             {
-                if(cthd.SanPham.MaSP == SelectRow.Cells[0].Value.ToString())
+                chitietHD.SanPham = doAn;
+                chitietHD.MaHD = chitietHD.HoaDon.MaHD;
+                chitietHD.MaSP = chitietHD.SanPham.MaSP;
+                chitietHD.DonGia = chitietHD.SanPham.Gia;
+                chitietHD.SL = 1;
+                chitietHD.TongTien = chitietHD.DonGia * chitietHD.SL;
+                foreach (SanPham item in db.SanPhams)
                 {
-                    chitietHD.SanPham.SoLuong +=1;
-                    break;
+                    if (item.MaSP == chitietHD.SanPham.MaSP)
+                    {
+                        item.SoLuong += 1;
+                    }
                 }
-
-            }   
-                    active_HD.CTHDs.Add(chitietHD);
-            db.SaveChanges();
-            Form_Update();
-            mainForm.Form_Update();
+                active_HD.CTHDs.Add(chitietHD);
+                mainForm.Form_Update();
+                Form_Update();
+                db.SaveChanges();
+            }
+            
         }
     }
 }
