@@ -29,8 +29,8 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btn_Xoa_All;
+        private System.Windows.Forms.Label lbl_TongSauKM;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lbl_Tong;
         private System.Windows.Forms.Label label6;
@@ -38,7 +38,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button btn_Xoa;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textBox1;
     }

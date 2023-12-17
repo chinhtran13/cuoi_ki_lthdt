@@ -15,8 +15,6 @@ namespace quan_ly_ban_hang
         QLYcuahangEntities db = new QLYcuahangEntities();
         public HoaDon activeHD;
         List<HoaDon> dsHoaDon;
-        CTHD ActiveHD_CT;
-        List<CTHD> ActiveHD_CT_DS;
         Form2 form2 = new Form2();
         Form3 form3;
         Form4 form4;
@@ -27,8 +25,8 @@ namespace quan_ly_ban_hang
 
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
@@ -44,12 +42,12 @@ namespace quan_ly_ban_hang
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button4 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
+            this.btn_Xoa_All = new System.Windows.Forms.Button();
+            this.lbl_TongSauKM = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.lbl_Tong = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.button7 = new System.Windows.Forms.Button();
+            this.btn_Xoa = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -153,34 +151,34 @@ namespace quan_ly_ban_hang
             // dataGridView1
             // 
             this.dataGridView1.BackgroundColor = System.Drawing.Color.PaleTurquoise;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
             this.Column3,
             this.Column4});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridView1.GridColor = System.Drawing.Color.Teal;
             this.dataGridView1.Location = new System.Drawing.Point(451, 107);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(465, 484);
             this.dataGridView1.TabIndex = 2;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // Column1
             // 
@@ -213,25 +211,27 @@ namespace quan_ly_ban_hang
             this.button4.TabIndex = 3;
             this.button4.Text = "Thanh Toán";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // button6
+            // btn_Xoa_All
             // 
-            this.button6.Location = new System.Drawing.Point(797, 610);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(70, 28);
-            this.button6.TabIndex = 5;
-            this.button6.Text = "Xoá tất cả";
-            this.button6.UseVisualStyleBackColor = true;
+            this.btn_Xoa_All.Location = new System.Drawing.Point(797, 610);
+            this.btn_Xoa_All.Name = "btn_Xoa_All";
+            this.btn_Xoa_All.Size = new System.Drawing.Size(70, 28);
+            this.btn_Xoa_All.TabIndex = 5;
+            this.btn_Xoa_All.Text = "Xoá tất cả";
+            this.btn_Xoa_All.UseVisualStyleBackColor = true;
+            this.btn_Xoa_All.Click += new System.EventHandler(this.btn_Xoa_All_Click);
             // 
-            // label3
+            // lbl_TongSauKM
             // 
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(451, 661);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(252, 41);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "0";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.lbl_TongSauKM.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_TongSauKM.Location = new System.Drawing.Point(451, 661);
+            this.lbl_TongSauKM.Name = "lbl_TongSauKM";
+            this.lbl_TongSauKM.Size = new System.Drawing.Size(252, 41);
+            this.lbl_TongSauKM.TabIndex = 6;
+            this.lbl_TongSauKM.Text = "0";
+            this.lbl_TongSauKM.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // label4
             // 
@@ -263,25 +263,25 @@ namespace quan_ly_ban_hang
             this.label6.TabIndex = 8;
             this.label6.Text = "Tổng Tiền:";
             // 
-            // button7
+            // btn_Xoa
             // 
-            this.button7.Location = new System.Drawing.Point(873, 610);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(36, 28);
-            this.button7.TabIndex = 14;
-            this.button7.Text = "Xoá";
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
+            this.btn_Xoa.Location = new System.Drawing.Point(873, 610);
+            this.btn_Xoa.Name = "btn_Xoa";
+            this.btn_Xoa.Size = new System.Drawing.Size(36, 28);
+            this.btn_Xoa.TabIndex = 14;
+            this.btn_Xoa.Text = "Xoá";
+            this.btn_Xoa.UseVisualStyleBackColor = true;
+            this.btn_Xoa.Click += new System.EventHandler(this.button7_Click);
             // 
             // Form1
             // 
             this.ClientSize = new System.Drawing.Size(959, 723);
-            this.Controls.Add(this.button7);
+            this.Controls.Add(this.btn_Xoa);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.lbl_Tong);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.button6);
+            this.Controls.Add(this.lbl_TongSauKM);
+            this.Controls.Add(this.btn_Xoa_All);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel2);
@@ -301,7 +301,15 @@ namespace quan_ly_ban_hang
 
         private void button7_Click(object sender, EventArgs e)
         {
-
+            foreach(CTHD cthd in activeHD.CTHDs)
+            {
+                if(cthd.MaSP == SelectRow.Cells[0].Value)
+                {
+                    activeHD.CTHDs.Remove(cthd);
+                    Form_Update();
+                    break;
+                }
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -318,13 +326,14 @@ namespace quan_ly_ban_hang
 
         private void button3_Click(object sender, EventArgs e)
         {
-            
+            form4 = new Form4(activeHD,this);
             form4.ShowDialog();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        DataGridViewRow SelectRow;
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+            SelectRow = dataGridView1.Rows[e.RowIndex];
         }
 
         public void Form_Update()
@@ -336,18 +345,79 @@ namespace quan_ly_ban_hang
                 DataGridViewRow row = new DataGridViewRow();
                 row.CreateCells(dataGridView1);
                 row.Cells[0].Value = cthd.MaSP;
-                row.Cells[1].Value = cthd.SanPham.TenSP;
+                foreach (SanPham item in db.SanPhams)
+                {
+                    if (item.MaSP == cthd.MaSP)
+                    {
+                        row.Cells[1].Value = item.TenSP;
+                    }
+                }
+
                 row.Cells[2].Value = cthd.SL;
                 row.Cells[3].Value = cthd.TongTien;
                 dataGridView1.Rows.Add(row);
                 }
-                        
+            double sumtrc_KM = 0, sumsau_KM = 0;
+                foreach(CTHD cthd in activeHD.CTHDs)
+                {
+                sumtrc_KM += cthd.TongTien;
+                }
+            double phanTramKM = 0;
+            lbl_Tong.Text = sumtrc_KM.ToString();
+            foreach(KhuyenMai Km in db.KhuyenMais)
+            {
+                if(Km.NgayBatDau.Year <= DateTime.UtcNow.Year & Km.NgayKetThuc.Year >= DateTime.UtcNow.Year)
+                {
+                    if(Km.NgayBatDau.Year != DateTime.UtcNow.Year & Km.NgayKetThuc.Year != DateTime.UtcNow.Year)
+                    {
+                        phanTramKM += Km.PhanTramGiam;
+                        activeHD.KhuyenMai = Km;
+                        break;
+                    }
+                    if(Km.NgayBatDau.Month <= DateTime.UtcNow.Month & Km.NgayKetThuc.Month >= DateTime.UtcNow.Month)
+                    {
+                        if(Km.NgayBatDau.Month != DateTime.UtcNow.Month & Km.NgayKetThuc.Month != DateTime.UtcNow.Month)
+                        {
+                            phanTramKM += Km.PhanTramGiam;
+                            activeHD.KhuyenMai = Km;
+                            break;
+                        }
+                        if(Km.NgayBatDau.Day <= DateTime.UtcNow.Day & Km.NgayKetThuc.Day >= DateTime.UtcNow.Day)
+                        {
+                            phanTramKM += Km.PhanTramGiam;
+                            activeHD.KhuyenMai = Km;
+                            break;
+                        }
+                    }
+                }
+            }
+            lbl_TongSauKM.Text = (sumtrc_KM - (sumtrc_KM * (phanTramKM/100))).ToString();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
             dsHoaDon = db.HoaDons.ToList();
+            new_HD();
+            foreach (CTHD cthd in activeHD.CTHDs)
+            {
+                DataGridViewRow row = new DataGridViewRow();
+                row.CreateCells(dataGridView1);
+                row.Cells[0].Value = cthd.MaSP;
+                foreach(SanPham item in db.SanPhams)
+                {
+                    if(item.MaSP == cthd.MaSP)
+                    {
+                        row.Cells[1].Value = item.TenSP;
+                    }
+                }
+               
+                row.Cells[2].Value = cthd.SL;
+                row.Cells[3].Value = cthd.SanPham.Gia * cthd.SL;
+                dataGridView1.Rows.Add(row);
+            }
+        }
+        private void new_HD()
+        {
             if (dsHoaDon.Count <= 0)
             {
                 activeHD = new HoaDon();
@@ -361,19 +431,52 @@ namespace quan_ly_ban_hang
                 activeHD.NgayTao = DateTime.UtcNow;
 
             }
-            foreach (CTHD cthd in activeHD.CTHDs)
-            {
-                DataGridViewRow row = new DataGridViewRow();
-                row.CreateCells(dataGridView1);
-                row.Cells[0].Value = cthd.SanPham.MaSP;
-                row.Cells[1].Value = cthd.SanPham.TenSP;
-                row.Cells[2].Value = cthd.SL;
-                row.Cells[3].Value = cthd.SanPham.Gia * cthd.SL;
-                dataGridView1.Rows.Add(row);
-            }
-            
-
+        }
+        private void btn_Xoa_All_Click(object sender, EventArgs e)
+        {
+            activeHD.CTHDs.Clear();
+            Form_Update();
         }
 
+        private void button4_Click(object sender, EventArgs e)
+        {
+            HoaDon addHoaDon = new HoaDon();
+            addHoaDon.MaKM = activeHD.MaKM;
+            addHoaDon.MaHD = activeHD.MaHD;
+            addHoaDon.MaNV = "NV1";
+            foreach(NhanVien nhanvien in db.NhanViens)
+            {
+                if(addHoaDon.MaNV == nhanvien.MaNV)
+                {
+                    addHoaDon.NhanVien = nhanvien;
+                }
+            }
+            addHoaDon.NgayTao = activeHD.NgayTao;
+            foreach(CTHD cthd in activeHD.CTHDs)
+            {
+                if(cthd.MaHD == addHoaDon.MaHD) 
+                {
+                    addHoaDon.CTHDs.Add(cthd);
+                }
+                
+            }
+            addHoaDon.TrangThai = "Chua Hoan Thanh";
+            if (string.IsNullOrEmpty(textBox1.Text))
+            {
+               addHoaDon.SDT = "0987654321";
+            }else
+                addHoaDon.SDT = textBox1.Text;
+            foreach(ThanhVien thanhvien in db.ThanhViens)
+            {
+                if(addHoaDon.SDT == thanhvien.SDTTV)
+                {
+                    addHoaDon.ThanhVien = thanhvien;
+                }
+            }
+            db.HoaDons.Add(addHoaDon);
+            db.SaveChanges();
+            new_HD();
+            Form_Update();
+        }
     }
 }

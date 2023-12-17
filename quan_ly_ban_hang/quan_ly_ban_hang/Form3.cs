@@ -135,18 +135,17 @@ namespace quan_ly_ban_hang
         {
             chitietHD = new CTHD();
             bool isExist = false;
-            chitietHD.HoaDon = active_HD;
             foreach(CTHD cthd in active_HD.CTHDs) 
             {
-                if(cthd.SanPham.MaSP == doAn.MaSP)
+                if(cthd.MaSP == doAn.MaSP)
                 {
                     cthd.SL += 1;
                    
                     foreach(SanPham item in db.SanPhams)
                     {
-                        if(item.MaSP == cthd.SanPham.MaSP)
+                        if(item.MaSP == cthd.MaSP)
                         {
-                            item.SoLuong += 1;
+                            item.SoLuong -= 1;
                         }
                     }
                     mainForm.Form_Update();
@@ -157,17 +156,16 @@ namespace quan_ly_ban_hang
             }
             if (!isExist)
             {
-                chitietHD.SanPham = doAn;
-                chitietHD.MaHD = chitietHD.HoaDon.MaHD;
-                chitietHD.MaSP = chitietHD.SanPham.MaSP;
-                chitietHD.DonGia = chitietHD.SanPham.Gia;
+                chitietHD.MaHD = active_HD.MaHD;
+                chitietHD.MaSP = doAn.MaSP;
+                chitietHD.DonGia = doAn.Gia;
                 chitietHD.SL = 1;
                 chitietHD.TongTien = chitietHD.DonGia * chitietHD.SL;
                 foreach (SanPham item in db.SanPhams)
                 {
-                    if (item.MaSP == chitietHD.SanPham.MaSP)
+                    if (item.MaSP == doAn.MaSP)
                     {
-                        item.SoLuong += 1;
+                        item.SoLuong -= 1;
                     }
                 }
                 active_HD.CTHDs.Add(chitietHD);

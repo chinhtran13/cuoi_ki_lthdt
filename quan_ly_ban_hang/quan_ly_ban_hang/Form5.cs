@@ -153,6 +153,20 @@ namespace quan_ly_ban_hang
                         row.Visible = true;
                     }
                 }
+                if (row.Cells["SDT"].Value != null)
+                {
+                    string sdt = row.Cells["SDT"].Value.ToString().ToLower(); // Chuyển giá trị MaHD về chữ thường
+
+                    // So sánh giá trị nhập với SDT, nếu không khớp thì ẩn row đó
+                    if (!sdt.StartsWith(value))
+                    {
+                        row.Visible = false;
+                    }
+                    else
+                    {
+                        row.Visible = true;
+                    }
+                }
             }
         }
 
